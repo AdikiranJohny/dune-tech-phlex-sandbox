@@ -1,11 +1,11 @@
-# Phlex starter: a trimmed copy of phlex-examples
+# Phlex India workshop sandbox
 
 > [!NOTE]
-> **This is a workshop practice copy, not the official repository.** It was made for the DUNE
-> Phlex workshop at IISc Bengaluru (October 2026) from the `phlex-v0.4` branch of
-> [Framework-R-D/phlex-examples](https://github.com/Framework-R-D/phlex-examples), commit
-> `c55bbfc`, and cut down to the smallest set of files that builds and runs. For real work, use
-> the official repository. See [WORKSHOP.md](WORKSHOP.md) for what changed and the rules for
+> **This is a workshop practice repository, not the official one.** It was made for the DUNE
+> Phlex workshop at IISc Bengaluru (October 2026). The example code is the official
+> [Framework-R-D/phlex-examples](https://github.com/Framework-R-D/phlex-examples), included as a
+> git submodule in `phlex-examples/` at the `phlex-v0.4` branch (commit `c55bbfc`). You can read
+> and build it, but you can't push to it. See [WORKSHOP.md](WORKSHOP.md) for the rules for
 > pushing here.
 
 ## What's here
@@ -13,12 +13,23 @@
 | File | What it is |
 |---|---|
 | `cmake-warmup/` | A tiny C++ project to practise CMake on, before Phlex |
+| `phlex-examples/` | The official examples (a submodule, read-only). Today we build the files below from it |
 | `my_add.cpp`, `my_geometry.cpp` | "Experiment code": ordinary C++ that knows nothing about Phlex (SHARED libraries) |
 | `numbers_source.cpp`, `geometry_source.cpp` | **Providers**: bring data into the job |
 | `add_and_verify.cpp` | A **transform** (adds two numbers) and an **observer** (checks the answer) |
 | `subtract.py` | A transform written in Python |
 | `test-cpp-workflow.jsonnet`, `test-py-workflow.jsonnet` | Job configurations |
 | `contributions/` | Where workshop participants add their own work |
+
+## Get the code
+
+Clone with `--recurse-submodules`, or `phlex-examples/` will be empty:
+
+```bash
+git clone --recurse-submodules https://github.com/<you>/phlex-india-sandbox.git
+```
+
+If you already cloned without it, run `git submodule update --init` inside the repository.
 
 ## Build
 
@@ -37,7 +48,7 @@ From the build directory:
 
 ```bash
 export PHLEX_PLUGIN_PATH=${PWD}:${PHLEX_PLUGIN_PATH}
-phlex -c ../phlex-india-sandbox/test-cpp-workflow.jsonnet --stage examples
+phlex -c ../phlex-india-sandbox/phlex-examples/test-cpp-workflow.jsonnet --stage examples
 ```
 
 The end of the output should show:
@@ -53,18 +64,20 @@ Processed layers:
 For the Python algorithm:
 
 ```bash
-export PYTHONPATH=$(realpath ../phlex-india-sandbox):${PYTHONPATH}
-phlex -c ../phlex-india-sandbox/test-py-workflow.jsonnet --stage examples
+export PYTHONPATH=$(realpath ../phlex-india-sandbox/phlex-examples):${PYTHONPATH}
+phlex -c ../phlex-india-sandbox/phlex-examples/test-py-workflow.jsonnet --stage examples
 ```
 
 `--stage` names the processing pass. Current Phlex releases require it.
 
 ## Where to go next
 
-The [official phlex-examples](https://github.com/Framework-R-D/phlex-examples) has much more:
-an unfold example, the GausHitFinder migration from LArSoft in four designs with tests, and
-branches that match each Phlex release (`phlex-v0.3`, `phlex-v0.4`, …). Clone the branch that
-matches your `phlex --version`:
+Everything else in `phlex-examples/` is worth reading: an unfold example and the GausHitFinder
+migration from LArSoft in four designs with tests. The official repository also has a branch for
+each Phlex release (`phlex-v0.3`, `phlex-v0.4`, …).
+
+To work on it for real after the workshop, clone the official repository on the branch that matches
+your `phlex --version`:
 
 ```bash
 git clone -b phlex-v0.4 https://github.com/Framework-R-D/phlex-examples.git

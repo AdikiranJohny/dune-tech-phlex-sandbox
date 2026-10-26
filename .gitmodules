@@ -1,0 +1,4 @@
+[submodule "phlex-examples"]
+	path = phlex-examples
+	url = https://github.com/Framework-R-D/phlex-examples.git
+	branch = phlex-v0.4

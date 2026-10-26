@@ -1,4 +1,4 @@
-// My first Phlex workflow: a copy of test-cpp-workflow.jsonnet to change.
+// My first Phlex workflow: a copy of phlex-examples/test-cpp-workflow.jsonnet to change.
 // Try: a different number of spills, or fewer products in the output.
 {
   driver: {

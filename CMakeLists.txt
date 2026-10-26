@@ -19,22 +19,30 @@ find_package(TBB REQUIRED)
 find_package(spdlog REQUIRED)
 find_package(phlex REQUIRED)
 
+# The example code comes from the official phlex-examples, included as a git submodule.
+# It is read-only here: build it, read it, but don't change it.
+set(EX "${CMAKE_CURRENT_SOURCE_DIR}/phlex-examples")
+if(NOT EXISTS "${EX}/my_add.cpp")
+  message(FATAL_ERROR "phlex-examples/ is empty. Run this in the repository, then configure again:\n"
+                      "  git submodule update --init")
+endif()
+
 add_compile_options(-Wall -Wpedantic -Werror)
 
 # Proxies for framework-agnostic experiment libraries
 # N.B. The specified library type should be SHARED.
-add_library(my_add SHARED my_add.cpp)
-add_library(my_geometry SHARED my_geometry.cpp)
+add_library(my_add SHARED ${EX}/my_add.cpp)
+add_library(my_geometry SHARED ${EX}/my_geometry.cpp)
 
 # Register providers for data products
-add_library(numbers_source MODULE numbers_source.cpp)
+add_library(numbers_source MODULE ${EX}/numbers_source.cpp)
 target_link_libraries(numbers_source PRIVATE phlex::module)
 
-add_library(geometry_source MODULE geometry_source.cpp)
+add_library(geometry_source MODULE ${EX}/geometry_source.cpp)
 target_link_libraries(geometry_source PRIVATE phlex::module my_geometry)
 
 # Register experiment libraries with Phlex
-add_library(add_and_verify MODULE add_and_verify.cpp)
+add_library(add_and_verify MODULE ${EX}/add_and_verify.cpp)
 target_link_libraries(add_and_verify PRIVATE phlex::module my_add my_geometry)
 
 # Enable asserts for add_and_verify

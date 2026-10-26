@@ -4,22 +4,21 @@ This repository is a practice space for the DUNE Phlex workshop at IISc Bengalur
 (October 26–30, 2026). You can't break anything here. Fork it, push to it, open pull
 requests and review each other's work.
 
-**This is a modified, trimmed copy, not the official repository.** It started from the
+**This is not the official repository.** The example code lives in `phlex-examples/`, a git
+submodule that points at the
 [`phlex-v0.4` branch of Framework-R-D/phlex-examples](https://github.com/Framework-R-D/phlex-examples/tree/phlex-v0.4)
-(commit `c55bbfc`). Changes:
+(commit `c55bbfc`). It is unchanged and read-only for you: commits there can't be pushed, and a
+pull request that moves the submodule fails the contribution check. This repository adds:
 
-- kept only the C++ and Python add/subtract examples and the files they need
-- left out the unfold example, `migration/` (GausHitFinder), `openspec/`, `scripts/` and the
-  linting configuration
-- rewrote `README.md` for the workshop
-- added `cmake-warmup/`, a small CMake practice project
-- added `WORKSHOP.md` (this file) and `contributions/`, where each participant adds their own work
-- added `.github/pull_request_template.md` and a small contribution check that runs on pull requests
-- added one line at the end of `CMakeLists.txt` that builds the `contributions/` directory
+- `CMakeLists.txt`, which builds the C++ add example from `phlex-examples/`, plus `contributions/`
+  (it is the official `CMakeLists.txt` with the source paths changed, and without the unfold and
+  GausHitFinder parts)
+- `cmake-warmup/`, a small CMake practice project
+- `README.md`, `WORKSHOP.md` (this file) and `contributions/`, where each participant adds their own work
+- `.github/pull_request_template.md` and a small contribution check that runs on pull requests
 
-Please don't open pull requests from here to Framework-R-D. The original copyright and license
-are in `NOTICE` and `LICENSE` (Apache-2.0). When you're ready for the full set of examples, go to
-the [official repository](https://github.com/Framework-R-D/phlex-examples).
+Please don't open pull requests from here to Framework-R-D. The `CMakeLists.txt` is a modified copy
+of the official one; its copyright and license are in `NOTICE` and `LICENSE` (Apache-2.0).
 
 ## The rules
 
