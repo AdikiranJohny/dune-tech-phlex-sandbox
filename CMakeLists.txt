@@ -40,3 +40,6 @@ target_link_libraries(add_and_verify PRIVATE phlex::module my_add my_geometry)
 # Enable asserts for add_and_verify
 # N.B. This should not be done for production code, but it is useful for testing and development.
 target_compile_options(add_and_verify PRIVATE -UNDEBUG)
+
+# Workshop sandbox: build participants' contributions (see WORKSHOP.md)
+add_subdirectory(contributions)

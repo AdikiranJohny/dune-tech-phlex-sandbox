@@ -1,0 +1,19 @@
+name: Contribution check
+
+on: pull_request
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check the changed files
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        # The checkout is the merge of the pull request into main, so its first parent is main
+        run: bash .github/scripts/check-contribution.sh HEAD^1 HEAD "$AUTHOR"
