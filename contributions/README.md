@@ -13,6 +13,9 @@ contributions/
 
 Folders that start with `_` are examples. Copy them; don't edit them.
 
+At the end of the session, `tools/word-cloud.py` collects the "One word for today" from every
+merged README and makes a word cloud for the room.
+
 ## How to contribute
 
 1. **Fork** this repository on GitHub (the Fork button, top right).

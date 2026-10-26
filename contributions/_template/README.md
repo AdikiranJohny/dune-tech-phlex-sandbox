@@ -24,3 +24,7 @@ phlex -c ../phlex-india-sandbox/contributions/<you>/my-workflow.jsonnet --stage 
 ## One thing I learned today
 
 <Anything: a git command, a Phlex word, a mistake you made and fixed.>
+
+## One word for today
+
+<A single word for how today went. These make the word cloud at the end.>
