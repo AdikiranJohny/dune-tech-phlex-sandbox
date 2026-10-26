@@ -6,7 +6,7 @@ never inside it:
 ```bash
 mkdir -p ~/phlex-work/build-warmup
 cd ~/phlex-work/build-warmup
-cmake ../phlex-india-sandbox/cmake-warmup   # configure
+cmake ../dune-tech-phlex-sandbox/cmake-warmup   # configure
 cmake --build .                             # build
 ./hello
 ```

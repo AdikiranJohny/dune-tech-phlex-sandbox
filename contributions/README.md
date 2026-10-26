@@ -21,8 +21,8 @@ merged README and makes a word cloud for the room.
 1. **Fork** this repository on GitHub (the Fork button, top right).
 2. **Clone your fork** and make a branch:
    ```bash
-   git clone https://github.com/<you>/phlex-india-sandbox.git
-   cd phlex-india-sandbox
+   git clone https://github.com/<you>/dune-tech-phlex-sandbox.git
+   cd dune-tech-phlex-sandbox
    git switch -c my-first-contribution
    ```
 3. **Copy the template** into your own folder:
@@ -37,7 +37,7 @@ merged README and makes a word cloud for the room.
    git push -u origin my-first-contribution
    ```
 6. On GitHub, open a **pull request** from your branch to `main` of
-   `nuRiceLab/phlex-india-sandbox`. Fill in the checklist in the description.
+   `nuRiceLab/dune-tech-phlex-sandbox`. Fill in the checklist in the description.
 7. Ask someone to review it. When it's approved, an instructor merges it.
 
 **No terminal?** You can do all of this in the browser. On your fork, go to `contributions/`,

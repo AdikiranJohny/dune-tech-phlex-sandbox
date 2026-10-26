@@ -14,7 +14,7 @@ and writes only the `sum` product with FORM.">
 From your build directory:
 
 ```bash
-phlex -c ../phlex-india-sandbox/contributions/<you>/my-workflow.jsonnet --stage <you>
+phlex -c ../dune-tech-phlex-sandbox/contributions/<you>/my-workflow.jsonnet --stage <you>
 ```
 
 ## What you should see

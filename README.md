@@ -26,7 +26,7 @@
 Clone with `--recurse-submodules`, or `phlex-examples/` will be empty:
 
 ```bash
-git clone --recurse-submodules https://github.com/<you>/phlex-india-sandbox.git
+git clone --recurse-submodules https://github.com/<you>/dune-tech-phlex-sandbox.git
 ```
 
 If you already cloned without it, run `git submodule update --init` inside the repository.
@@ -38,7 +38,7 @@ From the directory that contains this repository (the build directory sits next 
 ```bash
 mkdir build-sandbox
 cd build-sandbox
-cmake ../phlex-india-sandbox
+cmake ../dune-tech-phlex-sandbox
 cmake --build . -j 4
 ```
 
@@ -48,7 +48,7 @@ From the build directory:
 
 ```bash
 export PHLEX_PLUGIN_PATH=${PWD}:${PHLEX_PLUGIN_PATH}
-phlex -c ../phlex-india-sandbox/phlex-examples/test-cpp-workflow.jsonnet --stage examples
+phlex -c ../dune-tech-phlex-sandbox/phlex-examples/test-cpp-workflow.jsonnet --stage examples
 ```
 
 The end of the output should show:
@@ -64,8 +64,8 @@ Processed layers:
 For the Python algorithm:
 
 ```bash
-export PYTHONPATH=$(realpath ../phlex-india-sandbox/phlex-examples):${PYTHONPATH}
-phlex -c ../phlex-india-sandbox/phlex-examples/test-py-workflow.jsonnet --stage examples
+export PYTHONPATH=$(realpath ../dune-tech-phlex-sandbox/phlex-examples):${PYTHONPATH}
+phlex -c ../dune-tech-phlex-sandbox/phlex-examples/test-py-workflow.jsonnet --stage examples
 ```
 
 `--stage` names the processing pass. Current Phlex releases require it.
