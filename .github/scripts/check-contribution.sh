@@ -19,7 +19,7 @@ printf '  %s\n' "${files[@]}"
 for f in "${files[@]}"; do
   # GitHub usernames are case-insensitive, so compare in lower case
   if [[ "${f,,}" != "${folder,,}"* ]]; then
-    fail "$f is outside your folder ($folder). Only change files in your own folder."
+    fail "$f is outside your folder ($folder). Your folder must be named after your GitHub username, exactly. Only change files in your own folder."
   fi
   case "$f" in
     *CMakeCache.txt | *CMakeFiles/* | *.so | *.o | *.root | build/* | */build/*)
@@ -34,7 +34,7 @@ if ! git ls-tree -r --name-only "$head" contributions/ | grep -qix "${folder}REA
 fi
 
 if (( failed )); then
-  echo "Some checks failed. Read the messages above, fix them in your branch, and push again."
+  echo "Some checks failed. Read the messages above, fix them on the same branch (edit the file in the browser, or commit and push again)."
   exit 1
 fi
 echo "All checks passed."
